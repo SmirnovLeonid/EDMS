@@ -1,0 +1,10 @@
+Username             | Role            | Full Name                                | Password
+----------------------------------------------------------------------------------------------------
+admin                | admin           | Системный Админ                          | qwer123!
+rector               | rector          | Иванов Иван Иванович                     | qwer123!
+prorector            | prorector       | Петров Петр Петрович                     | qwer123!
+head_it              | dept_head       | Сергеев Сергей                           | qwer123!
+head_hr              | dept_head       | Аннова Анна                              | qwer123!
+emp_it1              | employee        | Алексеев Алексей                         | qwer123!
+emp_hr1              | employee        | Мариева Мария                            | qwer123!
+secretary            | secretary       | Еленова Елена                            | qwer123!
