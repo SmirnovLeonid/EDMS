@@ -138,7 +138,7 @@ const Users = () => {
                 <h1 className="text-2xl font-bold text-gray-800">Пользователи</h1>
                 <button
                     onClick={openCreateModal}
-                    className="bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-blue-700"
+                    className="bg-blue-600 text-slate-800 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-blue-700"
                 >
                     <UserPlus size={20} /> Добавить
                 </button>
@@ -147,7 +147,7 @@ const Users = () => {
             {/* Search */}
             <div className="bg-white p-4 rounded-lg shadow-sm mb-6">
                 <div className="relative max-w-md">
-                    <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                    <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
                     <input
                         type="text"
                         placeholder="Поиск пользователей..."
@@ -307,7 +307,7 @@ const Users = () => {
                                 <button type="button" onClick={() => setShowModal(false)} className="px-4 py-2 text-gray-600">
                                     Отмена
                                 </button>
-                                <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                                <button type="submit" className="px-4 py-2 bg-blue-600 text-slate-800 rounded-lg hover:bg-blue-700">
                                     Сохранить
                                 </button>
                             </div>

@@ -165,7 +165,7 @@ const DocumentDetail = () => {
                     {canSubmit && (
                         <button
                             onClick={() => handleAction('submit')}
-                            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-slate-800 rounded-lg hover:bg-blue-700"
                         >
                             <Send size={18} /> Отправить на согласование
                         </button>
@@ -174,7 +174,7 @@ const DocumentDetail = () => {
                         <>
                             <button
                                 onClick={() => openApprovalModal('approve')}
-                                className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+                                className="flex items-center gap-2 px-4 py-2 bg-green-600 text-slate-800 rounded-lg hover:bg-green-700"
                             >
                                 <Check size={18} /> Согласовать
                             </button>
@@ -189,7 +189,7 @@ const DocumentDetail = () => {
                     {canAssign && (
                         <button
                             onClick={() => setShowAssignModal(true)}
-                            className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700"
+                            className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-slate-800 rounded-lg hover:bg-purple-700"
                         >
                             <UserPlus size={18} /> Назначить исполнителя
                         </button>
@@ -221,7 +221,7 @@ const DocumentDetail = () => {
                                     </span>
                                 </div>
                                 {a.signature && (
-                                    <div className="text-xs text-gray-400 mt-2">
+                                    <div className="text-xs text-gray-500 mt-2">
                                         Подпись: {a.signature.substring(0, 16)}...
                                     </div>
                                 )}
@@ -257,7 +257,7 @@ const DocumentDetail = () => {
                                     </a>
                                 )}
                                 {log.signature && (
-                                    <div className="text-xs text-gray-400 mt-1">
+                                    <div className="text-xs text-gray-500 mt-1">
                                         Подпись: {log.signature.substring(0, 16)}...
                                     </div>
                                 )}
@@ -310,7 +310,7 @@ const DocumentDetail = () => {
                                 <button type="button" onClick={() => setShowAssignModal(false)} className="px-4 py-2 text-gray-600">
                                     Отмена
                                 </button>
-                                <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                                <button type="submit" className="px-4 py-2 bg-blue-600 text-slate-800 rounded-lg hover:bg-blue-700">
                                     Назначить
                                 </button>
                             </div>
@@ -354,7 +354,7 @@ const DocumentDetail = () => {
                                 </button>
                                 <button
                                     type="submit"
-                                    className={`px-4 py-2 text-white rounded-lg ${approvalAction === 'approve' ? 'bg-green-600 hover:bg-green-700' : 'bg-red-600 hover:bg-red-700'}`}
+                                    className={`px-4 py-2 text-slate-800 rounded-lg ${approvalAction === 'approve' ? 'bg-green-600 hover:bg-green-700' : 'bg-red-600 hover:bg-red-700'}`}
                                 >
                                     {approvalAction === 'approve' ? 'Согласовать' : 'Отклонить'}
                                 </button>

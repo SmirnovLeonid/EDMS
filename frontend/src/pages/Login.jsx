@@ -69,7 +69,7 @@ const Login = () => {
             <div className="relative z-10 w-full max-w-md mx-4">
                 {/* Glass card */}
                 <div
-                    className="backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/10"
+                    className="backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-slate-200"
                     style={{
                         background: 'rgba(255, 255, 255, 0.05)',
                     }}
@@ -77,10 +77,10 @@ const Login = () => {
                     {/* Logo */}
                     <div className="text-center mb-8">
                         <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/30 mb-4">
-                            <Sparkles size={40} className="text-white" />
+                            <Sparkles size={40} className="text-slate-800" />
                         </div>
-                        <h1 className="text-3xl font-bold text-white mb-2">ИС ЭДО</h1>
-                        <p className="text-indigo-300 text-sm">Система электронного документооборота</p>
+                        <h1 className="text-3xl font-bold text-slate-800 mb-2">ИС ЭДО</h1>
+                        <p className="text-indigo-600 text-sm">Система электронного документооборота</p>
                     </div>
 
                     {error && (
@@ -92,28 +92,28 @@ const Login = () => {
 
                     <form onSubmit={handleSubmit} className="space-y-5">
                         <div>
-                            <label className="block text-indigo-200 text-sm font-medium mb-2">Имя пользователя</label>
+                            <label className="block text-indigo-700 text-sm font-medium mb-2">Имя пользователя</label>
                             <div className="relative">
-                                <User size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-indigo-400" />
+                                <User size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-indigo-600" />
                                 <input
                                     type="text"
                                     value={username}
                                     onChange={(e) => setUsername(e.target.value)}
-                                    className="w-full pl-12 pr-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-indigo-300/50 focus:outline-none focus:border-indigo-400 focus:bg-white/15 transition-all duration-300"
+                                    className="w-full pl-12 pr-4 py-4 bg-white/10 border border-white/20 rounded-xl text-slate-800 placeholder-indigo-300/50 focus:outline-none focus:border-indigo-400 focus:bg-white/15 transition-all duration-300"
                                     placeholder="Введите логин"
                                     required
                                 />
                             </div>
                         </div>
                         <div>
-                            <label className="block text-indigo-200 text-sm font-medium mb-2">Пароль</label>
+                            <label className="block text-indigo-700 text-sm font-medium mb-2">Пароль</label>
                             <div className="relative">
-                                <Lock size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-indigo-400" />
+                                <Lock size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-indigo-600" />
                                 <input
                                     type="password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    className="w-full pl-12 pr-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-indigo-300/50 focus:outline-none focus:border-indigo-400 focus:bg-white/15 transition-all duration-300"
+                                    className="w-full pl-12 pr-4 py-4 bg-white/10 border border-white/20 rounded-xl text-slate-800 placeholder-indigo-300/50 focus:outline-none focus:border-indigo-400 focus:bg-white/15 transition-all duration-300"
                                     placeholder="Введите пароль"
                                     required
                                 />
@@ -122,7 +122,7 @@ const Login = () => {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="group w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-4 rounded-xl font-medium disabled:opacity-50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/30 hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
+                            className="group w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-slate-800 py-4 rounded-xl font-medium disabled:opacity-50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/30 hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
                         >
                             {loading ? (
                                 <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -135,7 +135,7 @@ const Login = () => {
                         </button>
                     </form>
 
-                    <div className="mt-8 text-center text-xs text-indigo-400/60">
+                    <div className="mt-8 text-center text-xs text-indigo-600/60">
                         © 2024 Система электронного документооборота ВУЗа
                     </div>
                 </div>

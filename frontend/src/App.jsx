@@ -10,8 +10,13 @@ import DocumentCreate from './pages/DocumentCreate';
 import DocumentDetail from './pages/DocumentDetail';
 import Assignments from './pages/Assignments';
 import Statistics from './pages/Statistics';
-import Analytics from './pages/Analytics';
+import AnalyticsDashboard from './pages/AnalyticsDashboard';
 import Users from './pages/Users';
+import TemplateList from './pages/templates/TemplateList';
+import TemplateEditor from './pages/templates/TemplateEditor';
+import CreateFromTemplate from './pages/templates/CreateFromTemplate';
+import ReportGenerator from './pages/ReportGenerator';
+import PredictDashboard from './pages/PredictDashboard';
 import Settings from './pages/Settings';
 
 function App() {
@@ -59,7 +64,37 @@ function App() {
 
           <Route path="/analytics" element={
             <PrivateRoute>
-              <Layout><Analytics /></Layout>
+              <Layout><AnalyticsDashboard /></Layout>
+            </PrivateRoute>
+          } />
+
+          <Route path="/templates" element={
+            <PrivateRoute>
+              <Layout><TemplateList /></Layout>
+            </PrivateRoute>
+          } />
+
+          <Route path="/templates/new" element={
+            <PrivateRoute>
+              <Layout><TemplateEditor /></Layout>
+            </PrivateRoute>
+          } />
+
+          <Route path="/templates/:id/use" element={
+            <PrivateRoute>
+              <Layout><CreateFromTemplate /></Layout>
+            </PrivateRoute>
+          } />
+
+          <Route path="/reports" element={
+            <PrivateRoute>
+              <Layout><ReportGenerator /></Layout>
+            </PrivateRoute>
+          } />
+
+          <Route path="/predict" element={
+            <PrivateRoute>
+              <Layout><PredictDashboard /></Layout>
             </PrivateRoute>
           } />
 

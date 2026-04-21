@@ -53,7 +53,7 @@ const Documents = () => {
                 <h1 className="text-2xl font-bold text-gray-800">Документы</h1>
                 <Link
                     to="/documents/new"
-                    className="bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-blue-700"
+                    className="bg-blue-600 text-slate-800 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-blue-700"
                 >
                     <Plus size={20} /> Создать
                 </Link>
@@ -63,7 +63,7 @@ const Documents = () => {
             <div className="bg-white p-4 rounded-lg shadow-sm mb-6 flex flex-wrap gap-4">
                 <div className="flex-1 min-w-[200px]">
                     <div className="relative">
-                        <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                        <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
                         <input
                             type="text"
                             placeholder="Поиск по названию или номеру..."

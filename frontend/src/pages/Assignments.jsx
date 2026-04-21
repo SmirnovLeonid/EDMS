@@ -71,7 +71,7 @@ const Assignments = () => {
                         key={tab.value}
                         onClick={() => setFilter(tab.value)}
                         className={`px-4 py-2 rounded-lg transition ${filter === tab.value
-                                ? 'bg-blue-600 text-white'
+                                ? 'bg-blue-600 text-slate-800'
                                 : 'bg-white text-gray-600 hover:bg-gray-100'
                             }`}
                     >
@@ -124,7 +124,7 @@ const Assignments = () => {
                                 {a.assignee === user.id && a.status === 'pending' && (
                                     <button
                                         onClick={() => handleAccept(a.id)}
-                                        className="flex items-center gap-1 px-3 py-1 bg-blue-600 text-white rounded text-sm hover:bg-blue-700"
+                                        className="flex items-center gap-1 px-3 py-1 bg-blue-600 text-slate-800 rounded text-sm hover:bg-blue-700"
                                     >
                                         <Play size={14} /> Принять
                                     </button>
@@ -133,7 +133,7 @@ const Assignments = () => {
                                 {a.assignee === user.id && ['accepted', 'in_progress'].includes(a.status) && (
                                     <button
                                         onClick={() => handleComplete(a.id)}
-                                        className="flex items-center gap-1 px-3 py-1 bg-green-600 text-white rounded text-sm hover:bg-green-700"
+                                        className="flex items-center gap-1 px-3 py-1 bg-green-600 text-slate-800 rounded text-sm hover:bg-green-700"
                                     >
                                         <Check size={14} /> Выполнено
                                     </button>
@@ -141,7 +141,7 @@ const Assignments = () => {
                             </div>
                         </div>
                         {a.signature && (
-                            <div className="mt-2 text-xs text-gray-400">
+                            <div className="mt-2 text-xs text-gray-500">
                                 Подпись: {a.signature.substring(0, 16)}... ({new Date(a.signed_at).toLocaleString()})
                             </div>
                         )}

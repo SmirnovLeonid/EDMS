@@ -58,7 +58,7 @@ const Dashboard = () => {
 
             <div className="relative flex items-center gap-4">
                 <div className={`p-4 rounded-2xl bg-gradient-to-br ${color} shadow-lg`}>
-                    <Icon size={28} className="text-white" />
+                    <Icon size={28} className="text-slate-800" />
                 </div>
                 <div>
                     <div className="text-4xl font-bold text-gray-800 group-hover:bg-gradient-to-r group-hover:from-indigo-600 group-hover:to-purple-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
@@ -83,7 +83,7 @@ const Dashboard = () => {
                 </div>
                 <Link
                     to="/documents/new"
-                    className="group bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-xl flex items-center gap-3 hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 hover:scale-105"
+                    className="group bg-gradient-to-r from-indigo-600 to-purple-600 text-slate-800 px-6 py-3 rounded-xl flex items-center gap-3 hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 hover:scale-105"
                 >
                     <Plus size={20} />
                     <span className="font-medium">Создать документ</span>
@@ -107,7 +107,7 @@ const Dashboard = () => {
                     <div className="flex items-center justify-between mb-6">
                         <h2 className="text-xl font-bold flex items-center gap-3">
                             <div className="p-2 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl">
-                                <Clock size={20} className="text-white" />
+                                <Clock size={20} className="text-slate-800" />
                             </div>
                             <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">
                                 Мои задания
@@ -119,7 +119,7 @@ const Dashboard = () => {
                     </div>
 
                     {myAssignments.length === 0 ? (
-                        <div className="flex flex-col items-center justify-center py-8 text-gray-400">
+                        <div className="flex flex-col items-center justify-center py-8 text-gray-500">
                             <CheckCircle size={48} className="mb-3 text-green-400" />
                             <p className="font-medium">Нет активных заданий</p>
                         </div>
@@ -162,7 +162,7 @@ const Dashboard = () => {
                     <div className="flex items-center justify-between mb-6">
                         <h2 className="text-xl font-bold flex items-center gap-3">
                             <div className="p-2 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl">
-                                <FileText size={20} className="text-white" />
+                                <FileText size={20} className="text-slate-800" />
                             </div>
                             <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
                                 Последние документы
@@ -171,7 +171,7 @@ const Dashboard = () => {
                     </div>
 
                     {myDocs.length === 0 ? (
-                        <div className="flex flex-col items-center justify-center py-8 text-gray-400">
+                        <div className="flex flex-col items-center justify-center py-8 text-gray-500">
                             <FileText size={48} className="mb-3" />
                             <p className="font-medium">Нет документов</p>
                         </div>
@@ -196,7 +196,7 @@ const Dashboard = () => {
                                                 }`}>
                                                 {doc.status_display}
                                             </span>
-                                            <span className="text-gray-400 text-sm">{new Date(doc.created_at).toLocaleDateString()}</span>
+                                            <span className="text-gray-500 text-sm">{new Date(doc.created_at).toLocaleDateString()}</span>
                                         </div>
                                     </Link>
                                 </li>

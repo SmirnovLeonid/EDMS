@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import {
     LayoutDashboard, FileText, FolderOpen, Users, BarChart2,
-    Settings, LogOut, ChevronLeft, ChevronRight, PieChart, Sparkles
+    Settings, LogOut, ChevronLeft, ChevronRight, PieChart, Sparkles, ClipboardList, Download, BrainCircuit
 } from 'lucide-react';
 
 const Sidebar = ({ collapsed, setCollapsed }) => {
@@ -14,6 +14,9 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
         { path: '/', icon: LayoutDashboard, label: 'Рабочий стол', roles: ['all'] },
         { path: '/documents', icon: FileText, label: 'Документы', roles: ['all'] },
         { path: '/assignments', icon: FolderOpen, label: 'Задания', roles: ['all'] },
+        { path: '/templates', icon: ClipboardList, label: 'Шаблоны', roles: ['all'] },
+        { path: '/reports', icon: Download, label: 'Генератор отчетов', roles: ['admin', 'rector', 'prorector', 'dept_head'] },
+        { path: '/predict', icon: BrainCircuit, label: 'AI Аналитика', roles: ['admin', 'rector', 'dept_head'] },
         { path: '/users', icon: Users, label: 'Пользователи', roles: ['admin'] },
         { path: '/statistics', icon: BarChart2, label: 'Статистика', roles: ['admin', 'rector', 'prorector'] },
         { path: '/analytics', icon: PieChart, label: 'Аналитика', roles: ['admin', 'rector'] },
@@ -88,8 +91,8 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
                             key={item.path}
                             to={item.path}
                             className={`group flex items-center px-4 py-3 rounded-xl transition-all duration-300 relative overflow-hidden ${isActive(item.path)
-                                    ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/30'
-                                    : 'text-indigo-200 hover:bg-white/10 hover:text-white'
+                                ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/30'
+                                : 'text-indigo-200 hover:bg-white/10 hover:text-white'
                                 }`}
                             style={{
                                 animationDelay: `${index * 50}ms`,

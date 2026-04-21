@@ -121,3 +121,19 @@ class DocumentVersion(models.Model):
         verbose_name = 'Версия документа'
         verbose_name_plural = 'Версии документов'
         ordering = ['-version_number']
+
+
+class DocumentTemplate(models.Model):
+    name = models.CharField(max_length=255, verbose_name='Название шаблона')
+    type = models.CharField(max_length=100, verbose_name='Тип шаблона')
+    template_text = models.TextField(verbose_name='Текст шаблона')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+    creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, verbose_name='Создатель')
+
+    class Meta:
+        verbose_name = 'Шаблон документа'
+        verbose_name_plural = 'Шаблоны документов'
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return self.name

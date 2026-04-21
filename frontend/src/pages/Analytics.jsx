@@ -5,7 +5,7 @@ import {
     ResponsiveContainer, LineChart, Line, Legend
 } from 'recharts';
 import { jsPDF } from 'jspdf';
-import 'jspdf-autotable';
+import autoTable from 'jspdf-autotable';
 import * as XLSX from 'xlsx';
 import {
     FileText, Users, AlertTriangle, TrendingUp, Download,
@@ -42,18 +42,44 @@ const Analytics = () => {
         archived: 'Архив',
     };
 
-    const exportToPDF = () => {
+    const exportToPDF = async () => {
         const doc = new jsPDF();
-        doc.setFont('helvetica');
-        doc.setFontSize(18);
+
+        try {
+            // Fetch Roboto font for Cyrillic support
+            const fontUrl = 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-regular-webfont.ttf';
+            const response = await fetch(fontUrl);
+            const buffer = await response.arrayBuffer();
+            let binary = '';
+            const bytes = new Uint8Array(buffer);
+            for (let i = 0; i < bytes.byteLength; i++) {
+                binary += String.fromCharCode(bytes[i]);
+            }
+            const base64Str = window.btoa(binary);
+
+            doc.addFileToVFS('Roboto-Regular.ttf', base64Str);
+            doc.addFont('Roboto-Regular.ttf', 'Roboto', 'normal');
+            doc.setFont('Roboto');
+        } catch (e) {
+            console.error('Unable to load Cyrillic font', e);
+            doc.setFont('helvetica');
+        }
+
+        // Header
+        doc.setFontSize(22);
+        doc.setTextColor(40, 40, 40);
         doc.text('Аналитический отчет', 14, 22);
+
         doc.setFontSize(10);
+        doc.setTextColor(100, 100, 100);
         doc.text(`Дата: ${new Date().toLocaleDateString('ru-RU')}`, 14, 30);
 
         // Summary
         doc.setFontSize(14);
+        doc.setTextColor(40, 40, 40);
         doc.text('Сводка', 14, 45);
-        doc.autoTable({
+
+        autoTable(doc, {
             startY: 50,
             head: [['Показатель', 'Значение']],
             body: [
@@ -63,22 +89,30 @@ const Analytics = () => {
                 ['За этот месяц', stats.docs_this_month],
                 ['Выполнение (%)', `${stats.completion_rate}%`],
             ],
+            styles: { font: 'Roboto', fontSize: 11, cellPadding: 4 },
+            headStyles: { fillColor: [59, 130, 246], fontStyle: 'normal' }, // Tailwind blue-500
         });
 
         // Status stats
-        doc.text('Документы по статусам', 14, doc.lastAutoTable.finalY + 15);
-        doc.autoTable({
-            startY: doc.lastAutoTable.finalY + 20,
+        let finalY = doc.lastAutoTable.finalY + 15;
+        doc.text('Документы по статусам', 14, finalY);
+        autoTable(doc, {
+            startY: finalY + 5,
             head: [['Статус', 'Количество']],
             body: stats.status_stats.map(item => [statusLabels[item.status] || item.status, item.count]),
+            styles: { font: 'Roboto', fontSize: 11, cellPadding: 4 },
+            headStyles: { fillColor: [139, 92, 246], fontStyle: 'normal' }, // Tailwind purple-500
         });
 
         // Type stats
-        doc.text('Документы по типам', 14, doc.lastAutoTable.finalY + 15);
-        doc.autoTable({
-            startY: doc.lastAutoTable.finalY + 20,
+        finalY = doc.lastAutoTable.finalY + 15;
+        doc.text('Документы по типам', 14, finalY);
+        autoTable(doc, {
+            startY: finalY + 5,
             head: [['Тип', 'Количество']],
             body: stats.type_stats.map(item => [item.document_type__name, item.count]),
+            styles: { font: 'Roboto', fontSize: 11, cellPadding: 4 },
+            headStyles: { fillColor: [16, 185, 129], fontStyle: 'normal' }, // Tailwind emerald-500
         });
 
         doc.save('analytics_report.pdf');
@@ -150,13 +184,13 @@ const Analytics = () => {
                 <div className="flex gap-3">
                     <button
                         onClick={exportToPDF}
-                        className="flex items-center gap-2 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all shadow-lg hover:shadow-xl"
+                        className="flex items-center gap-2 px-4 py-2 bg-red-500 text-slate-800 rounded-lg hover:bg-red-600 transition-all shadow-lg hover:shadow-xl"
                     >
                         <Download size={18} /> PDF
                     </button>
                     <button
                         onClick={exportToExcel}
-                        className="flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-all shadow-lg hover:shadow-xl"
+                        className="flex items-center gap-2 px-4 py-2 bg-green-500 text-slate-800 rounded-lg hover:bg-green-600 transition-all shadow-lg hover:shadow-xl"
                     >
                         <FileSpreadsheet size={18} /> Excel
                     </button>

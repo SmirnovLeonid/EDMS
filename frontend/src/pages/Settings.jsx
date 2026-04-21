@@ -163,7 +163,7 @@ const Settings = () => {
                             placeholder="Название подразделения"
                             className="flex-1 border rounded-lg px-4 py-2"
                         />
-                        <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-blue-700">
+                        <button type="submit" className="bg-blue-600 text-slate-800 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-blue-700">
                             <Plus size={18} /> Добавить
                         </button>
                     </form>
@@ -191,7 +191,7 @@ const Settings = () => {
                             placeholder="Название типа документа"
                             className="flex-1 border rounded-lg px-4 py-2"
                         />
-                        <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-blue-700">
+                        <button type="submit" className="bg-blue-600 text-slate-800 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-blue-700">
                             <Plus size={18} /> Добавить
                         </button>
                     </form>
@@ -260,7 +260,7 @@ const Settings = () => {
                                 <option key={r.value} value={r.value}>{r.label}</option>
                             ))}
                         </select>
-                        <button type="submit" className="bg-blue-600 text-white px-6 py-2 rounded-lg flex items-center gap-2 hover:bg-blue-700 shadow-sm transition-colors">
+                        <button type="submit" className="bg-blue-600 text-slate-800 px-6 py-2 rounded-lg flex items-center gap-2 hover:bg-blue-700 shadow-sm transition-colors">
                             <Plus size={18} /> Добавить шаг
                         </button>
                     </form>
@@ -275,8 +275,8 @@ const Settings = () => {
                                         </div>
                                         <div>
                                             <span className="font-semibold text-gray-800">{documentTypes.find(t => t.id === r.document_type)?.name}</span>
-                                            <span className="mx-3 text-gray-400">→</span>
-                                            <span className="px-3 py-1 bg-blue-600 text-white rounded-full text-xs font-medium">
+                                            <span className="mx-3 text-gray-500">→</span>
+                                            <span className="px-3 py-1 bg-blue-600 text-slate-800 rounded-full text-xs font-medium">
                                                 {roleOptions.find(ro => ro.value === r.approver_role)?.label || r.approver_role}
                                             </span>
                                         </div>
@@ -287,7 +287,7 @@ const Settings = () => {
                                 </div>
                             ))}
                             {approvalRoutes.length === 0 && (
-                                <div className="text-center py-12 text-gray-400 italic">Маршруты не найдены</div>
+                                <div className="text-center py-12 text-gray-500 italic">Маршруты не найдены</div>
                             )}
                         </div>
                     ) : (
